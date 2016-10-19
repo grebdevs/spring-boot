@@ -8,7 +8,7 @@ Exploring and learning more about Spring Boot and its surroundings.
 
 ## Progress
 * A first, basic REST API in the ```basic-rest``` child project
-* Frontend exploration taking place in the branch ```frontend```
+* Frontend exploration taking place in the branch ```frontend```, and might occasionaly be merged into master
 
 ## Run
 With maven installed, clone the repo and run: 
