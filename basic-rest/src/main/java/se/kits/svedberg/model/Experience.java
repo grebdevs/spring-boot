@@ -1,4 +1,4 @@
-package model;
+package se.kits.svedberg.model;
 
 /**
  * Created by Pär Svedberg on 2016-10-18.

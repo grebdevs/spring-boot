@@ -1,6 +1,6 @@
-package service;
+package se.kits.svedberg.service;
 
-import model.Experience;
+import se.kits.svedberg.model.Experience;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -26,9 +26,9 @@ public class ExperienceServiceBean implements ExperienceService {
 
         if (exp.getId() == null || experiences.get(exp.getId()) == null) {
             // Create
-            do {
+            while (experiences.get(nextId) != null) {
                 nextId = nextId + 1L;
-            } while (experiences.get(nextId) != null);
+            };
             if (exp.getId() == null) { exp.setId(nextId); }
         } else {
             // Update

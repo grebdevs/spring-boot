@@ -1,6 +1,6 @@
-package service;
+package se.kits.svedberg.service;
 
-import model.Experience;
+import se.kits.svedberg.model.Experience;
 
 import java.util.Collection;
 
