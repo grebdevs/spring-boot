@@ -12,5 +12,6 @@ app.controller('aboutController', function($scope) {
 
 app.controller('firstController', function($scope, $http) {
     $http.get('/svedberg/experience/').success(function(data) {
-        $scope.greeting = myData;
-})
+        $scope.myData = data;
+    })
+});

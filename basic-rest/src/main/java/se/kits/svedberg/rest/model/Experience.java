@@ -1,4 +1,4 @@
-package se.kits.svedberg.model;
+package se.kits.svedberg.rest.model;
 
 /**
  * Created by Pär Svedberg on 2016-10-18.
