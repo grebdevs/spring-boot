@@ -1,10 +1,10 @@
-package se.kits.svedberg.application;
+package se.kits.svedberg.rest.application;
 
-import se.kits.svedberg.controller.ExperienceController;
+import se.kits.svedberg.frontend.controller.ExperienceController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import se.kits.svedberg.service.ExperienceServiceBean;
+import se.kits.svedberg.frontend.service.ExperienceServiceBean;
 
 /**
  * Created by Pär Svedberg on 2016-10-18.
