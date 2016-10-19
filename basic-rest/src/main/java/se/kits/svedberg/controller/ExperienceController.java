@@ -14,7 +14,7 @@ import java.util.Collection;
 /**
  * Created by Pär Svedberg on 2016-10-18.
  */
-@RequestMapping("/api/experience")
+@RequestMapping("/svedberg/experience")
 @RestController
 public class ExperienceController {
 
