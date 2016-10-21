@@ -1,13 +1,14 @@
 package se.kits.svedberg.rest.controller;
 
-import se.kits.svedberg.frontend.model.Experience;
+import se.kits.svedberg.rest.model.Experience;
+import se.kits.svedberg.rest.service.ExperienceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import se.kits.svedberg.frontend.service.ExperienceService;
+
 
 import java.util.Collection;
 

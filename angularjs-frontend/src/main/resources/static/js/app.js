@@ -13,7 +13,7 @@ app.config(function($routeProvider){
             templateUrl: '/views/about.html',
             controller: 'aboutController'
         })
-        .when('/first',{
+        .when('/',{
             templateUrl: 'views/first.html',
             controller: 'firstController'
         })

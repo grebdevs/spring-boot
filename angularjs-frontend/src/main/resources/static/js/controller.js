@@ -6,12 +6,15 @@ app.controller('explorerController', function($scope) {
     $scope.headingTitle = "Explore my tiny API!";
 });
 
-app.controller('aboutController', function($scope) {
+app.controller('aboutController', function($scope, $document) {
     $scope.headingTitle = "About Pär";
 });
 
 app.controller('firstController', function($scope, $http) {
-    $http.get('/svedberg/experience/').success(function(data) {
-        $scope.myData = data;
+    $http.get('/svedberg/experience/current').success(function(data) {
+        var jsonData = JSON.stringify(data, null, 2);
+        $scope.myData = jsonData;
+        console.log(jsonData);
+        $scope.my_text_area = jsonData;
     })
 });

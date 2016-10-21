@@ -84,5 +84,14 @@ public class ExperienceController {
         return new ResponseEntity<Experience>(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(
+            value = "/current",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Experience> getCurrent() {
+        return getExperience(0L);
+    }
+
 
 }

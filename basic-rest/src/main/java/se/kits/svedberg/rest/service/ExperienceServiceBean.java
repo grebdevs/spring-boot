@@ -1,6 +1,6 @@
 package se.kits.svedberg.rest.service;
 
-import se.kits.svedberg.frontend.model.Experience;
+import se.kits.svedberg.rest.model.Experience;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
