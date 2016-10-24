@@ -1,7 +1,7 @@
-package se.kits.svedberg.rest.repository;
+package se.kits.svedberg.repository;
 
+import se.kits.svedberg.model.Experience;
 import org.springframework.data.repository.CrudRepository;
-import se.kits.svedberg.rest.model.Experience;
 
 import java.util.List;
 

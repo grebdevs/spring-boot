@@ -6,7 +6,6 @@
     <groupId>se.kits.svedberg</groupId>
     <artifactId>spring-boot-test</artifactId>
     <version>0.0.1</version>
-    <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,6 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -31,6 +31,24 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.4.1211</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>1.4.9</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.6</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

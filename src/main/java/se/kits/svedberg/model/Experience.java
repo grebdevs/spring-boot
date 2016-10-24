@@ -1,4 +1,4 @@
-package se.kits.svedberg.rest.model;
+package se.kits.svedberg.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
