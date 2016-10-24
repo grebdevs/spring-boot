@@ -10,6 +10,8 @@ import se.kits.svedberg.repository.ExperienceRepository;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.Optional;
 
 /**
  * Created by Pär Svedberg on 2016-10-18.
@@ -75,10 +77,6 @@ public class ExperienceController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<Experience> deleteExperience(@NotNull @PathVariable("id") Long id) {
-//        if (exp.getId().compareTo(id) != 0) {
-//            return new ResponseEntity<Experience>(HttpStatus.BAD_REQUEST);
-//        }
-
         if (!experienceRepository.exists(id)) {
             return new ResponseEntity<Experience>(HttpStatus.NOT_FOUND);
         }
@@ -86,5 +84,19 @@ public class ExperienceController {
         return new ResponseEntity<Experience>(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(
+            value = "/current",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Experience> getCurrent() {
+        Experience exp = experienceRepository.findAll().stream()
+                                                       .min((e1, e2) -> Long.compare(e1.getId(), e2.getId()))
+                                                       .get();
+        if (exp == null) {
+            return new ResponseEntity<Experience>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Experience>(exp, HttpStatus.OK);
+    }
 
 }
