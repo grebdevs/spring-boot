@@ -1,16 +1,42 @@
 package se.kits.svedberg.rest.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by Pär Svedberg on 2016-10-18.
  */
-public class Experience {
 
+@Entity
+@Table(name = "Experiences")
+public class Experience implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
     private Long id;
-    private String workPlace;
-    private String role;
+
+    @Column(name = "workplace", nullable = false)
+    private String workplace;
+
+    @Column(nullable = false)
+    private String title;
+
     private String responsibilities;
     private String duration;
 
+    protected Experience() {
+        // no-args constructor required by JPA spec
+        // this one is protected since it shouldn't be used directly
+    }
+
+    public Experience(Long id, String workplace, String title, String responsibilities, String duration) {
+        setId(id);
+        setWorkplace(workplace);
+        setTitle(title);
+        setResponsibilities(responsibilities);
+        setDuration(duration);
+    }
 
     public Long getId() {
         return id;
@@ -20,20 +46,20 @@ public class Experience {
         this.id = id;
     }
 
-    public String getWorkPlace() {
-        return workPlace;
+    public String getWorkplace() {
+        return workplace;
     }
 
-    public void setWorkPlace(String workPlace) {
-        this.workPlace = workPlace;
+    public void setWorkplace(String workplace) {
+        this.workplace = workplace;
     }
 
-    public String getRole() {
-        return role;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getResponsibilities() {
