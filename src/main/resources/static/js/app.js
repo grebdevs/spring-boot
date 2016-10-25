@@ -3,7 +3,7 @@
  */
 
 var app = angular.module('app', ['ngRoute','ngResource']);
-app.config(function($routeProvider){
+app.config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
     $routeProvider
         .when('/explorer',{
             templateUrl: '/views/explorer.html',
@@ -20,4 +20,7 @@ app.config(function($routeProvider){
         .otherwise(
             { redirectTo: '/'}
         );
-});
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
+}]);
