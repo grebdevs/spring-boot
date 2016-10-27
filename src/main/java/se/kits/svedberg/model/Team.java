@@ -23,10 +23,6 @@ public class Team implements Serializable {
 
     private String league;
 
-//    @ManyToMany
-//    private Set<String> fans;
-
-
     public Team() {
     }
 
@@ -68,14 +64,6 @@ public class Team implements Serializable {
     public void setLeague(String league) {
         this.league = league;
     }
-
-//    public Set<String> getFans() {
-//        return fans;
-//    }
-//
-//    public void setFans(Set<String> fans) {
-//        this.fans = fans;
-//    }
 
     public enum Sport {
         HOCKEY, FOOTBALL, BANDY

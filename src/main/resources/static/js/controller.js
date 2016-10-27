@@ -4,7 +4,7 @@
 
 app.controller('explorerController', function($scope, $http) {
     $scope.headingTitle = "Explore my tiny API!";
-    $scope.restInput = "/svedberg/experience";
+    $scope.restInput = "/svedberg";
     $scope.goButton = function () {
 
         $http.get($scope.restInput).success(function(data) {
