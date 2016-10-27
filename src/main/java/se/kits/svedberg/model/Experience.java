@@ -8,15 +8,15 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name = "Experiences")
 public class Experience implements Serializable {
+
+    private static final long serialVersionUID = 6638538957472080217L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
     private Long id;
 
-    @Column(name = "workplace", nullable = false)
+    @Column(nullable = false)
     private String workplace;
 
     @Column(nullable = false)
@@ -30,12 +30,11 @@ public class Experience implements Serializable {
         // this one is protected since it shouldn't be used directly
     }
 
-    public Experience(Long id, String workplace, String title, String responsibilities, String duration) {
-        setId(id);
-        setWorkplace(workplace);
-        setTitle(title);
-        setResponsibilities(responsibilities);
-        setDuration(duration);
+    public Experience(String workplace, String title, String responsibilities, String duration) {
+        this.workplace = workplace;
+        this.title = title;
+        this.responsibilities = responsibilities;
+        this.duration = duration;
     }
 
     public Long getId() {

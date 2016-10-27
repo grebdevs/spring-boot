@@ -15,7 +15,7 @@ app.controller('explorerController', function($scope, $http) {
     )}
 });
 
-app.controller('aboutController', function($scope, $document) {
+app.controller('aboutController', function($scope) {
     $scope.headingTitle = "About Pär";
 });
 
