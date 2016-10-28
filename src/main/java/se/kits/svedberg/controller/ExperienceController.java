@@ -22,14 +22,21 @@ public class ExperienceController {
     @Autowired
     private ExperienceRepository experienceRepository;
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<Map<String,Collection<Experience>>> getExperiences() {
         Map experiences = new HashMap<>();
         experiences.put("experience", experienceRepository.findAll());
         return new ResponseEntity<Map<String, Collection<Experience>>>(experiences, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            value = "/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<Experience> getExperience(@PathVariable("id") Long id) {
         Experience exp = experienceRepository.findOne(id);
         if (exp == null) {
@@ -78,7 +85,11 @@ public class ExperienceController {
         return new ResponseEntity<Experience>(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value = "/current", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(
+            value = "/current",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity<Experience> getCurrent() {
         Experience exp = experienceRepository.findAll()
                 .stream()

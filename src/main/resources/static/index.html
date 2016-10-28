@@ -11,12 +11,9 @@
     <base href="/">
 </head>
 <div ng-include="'html/header.html'"></div>
-<body>
+<body ng-style="myStyle">
 <div class="container">
-    <div class="row">
-<div ng-view></div>
-
-    </div>
+    <div class="row" ng-view></div>
 </div>
 
 

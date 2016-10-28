@@ -26,7 +26,6 @@ public class Init implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-//        createTeams();
         createPersonal();
     }
 
@@ -38,20 +37,13 @@ public class Init implements ApplicationRunner {
         teams.add(new Team("Bollnäs GIF", Team.Sport.BANDY, "Elitserien"));
         teamRepository.save(teams);
 
-        personalRepository.save(
-                new Personal(
-                        "Pär Svedberg",
-                        1982,
-                        3,
-                        "Göteborg",
-                        "Bagaregården",
-                        teams
+        personalRepository.save(new Personal(
+                "Pär Svedberg",
+                1982,
+                3,
+                "Göteborg",
+                "Bagaregården",
+                teams
         ));
-    }
-
-    private void createTeams() {
-        teamRepository.save(new Team("Brynäs IF", Team.Sport.HOCKEY, "SHL"));
-        teamRepository.save(new Team("Ottawa Senators", Team.Sport.HOCKEY, "NHL"));
-        teamRepository.save(new Team("Bollnäs GIF", Team.Sport.BANDY, "Elitserien"));
     }
 }

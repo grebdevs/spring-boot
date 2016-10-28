@@ -14,7 +14,7 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
             controller: 'aboutController'
         })
         .when('/',{
-            templateUrl: 'views/first.html',
+            templateUrl: '/views/first.html',
             controller: 'firstController'
         })
         .otherwise(
