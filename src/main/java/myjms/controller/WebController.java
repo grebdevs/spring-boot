@@ -2,9 +2,8 @@ package myjms.controller;
 
 import myjms.client.JmsClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Pär Svedberg on 2016-11-01.
@@ -15,17 +14,14 @@ public class WebController {
     @Autowired
     JmsClient jmsClient;
 
-    @RequestMapping(value="/produce")
-    public String produce(@RequestParam(name = "queue", required = false)String queue, @RequestParam("msg")String msg){
-        if (queue == null && msg == null) {
-            return "Got null parameters";
-        }
+    @RequestMapping(value="/produce", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void produce(@RequestParam(name = "queue", required = false)String queue, @RequestParam("msg")String msg){
         if (queue == null) {
             jmsClient.send(msg);
         } else {
             jmsClient.send(queue, msg);
         }
-        return "Done";
     }
 
     @RequestMapping(value="/receive")
