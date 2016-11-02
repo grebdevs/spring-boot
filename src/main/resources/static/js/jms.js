@@ -11,12 +11,9 @@ myApp.controller('pubController', function ($scope, $http) {
         $scope.pubForm.$setPristine();
     }
     $scope.publish = function () {
-        // $scope.pubQueue = "foo";
-        // alert($scope.pub.queue);
         $http.post('/produce', null, {
                 params: { queue: $scope.pub.queue, msg: $scope.pub.message }
             }).then(resetForm());
-        // resetForm();
 
     }
 });
