@@ -1,6 +1,0 @@
-application\SpringbootJmsApplication.class
-client\JmsClient.class
-producer\JmsProducer.class
-consumer\JmsConsumer.class
-controller\WebController.class
-client\imp\JmsClientImpl.class
