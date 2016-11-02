@@ -19,4 +19,8 @@ public class JmsProducer {
     public void send(String msg){
         jmsTemplate.convertAndSend(destinationQueue, msg);
     }
+
+    public void send(String destinationQueue, String msg){
+        jmsTemplate.convertAndSend(destinationQueue, msg);
+    }
 }

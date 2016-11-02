@@ -24,6 +24,11 @@ public class JmsClientImpl implements JmsClient {
     }
 
     @Override
+    public void send(String destination, String msg) {
+        jmsProducer.send(destination, msg);
+    }
+
+    @Override
     public String receive() {
         return jmsConsumer.receive();
     }

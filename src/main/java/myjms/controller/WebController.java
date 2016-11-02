@@ -13,16 +13,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController {
 
     @Autowired
-    JmsClient jsmClient;
+    JmsClient jmsClient;
 
     @RequestMapping(value="/produce")
-    public String produce(@RequestParam("msg")String msg){
-        jsmClient.send(msg);
+    public String produce(@RequestParam(name = "queue", required = false)String queue, @RequestParam("msg")String msg){
+        if (queue == null && msg == null) {
+            return "Got null parameters";
+        }
+        if (queue == null) {
+            jmsClient.send(msg);
+        } else {
+            jmsClient.send(queue, msg);
+        }
         return "Done";
     }
 
     @RequestMapping(value="/receive")
     public String receive(){
-        return jsmClient.receive();
+        return jmsClient.receive();
     }
 }

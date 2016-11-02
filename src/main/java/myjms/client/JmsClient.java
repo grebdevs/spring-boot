@@ -5,5 +5,6 @@ package myjms.client;
  */
 public interface JmsClient {
     public void send(String msg);
+    public void send(String destination, String msg);
     public String receive();
 }
