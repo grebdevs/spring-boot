@@ -2,21 +2,18 @@
 Exploring and learning more about Spring Boot and its surroundings.
 
 ## Agenda
-* Create a simple REST API
-* Connect with some kind of presentational layer (frontend)
-* Setup JPA/database connection
+This repo is a collection projects based on Spring Boot, each incorporating one or more aspects of Spring and enterprise Java. The approach is basically _learning by doing_, merging own ideas with what is learned from docs and guides.
 
-## Progress
-* A first, basic REST API is in place.
-* Frontend exploration with simple AngularJS, making use of the REST API
-* A connection to JPA (PostgreSQL) established and working
+## The projects
+Maven is used to build and run the projects. Each project has its own readme with relevant info.
 
-## Run
-With maven installed, clone the repo and run: 
-```mvn spring-boot:run```
+Current projects:
 
-This will set up the webpage at the default address of [http://localhost:8080](http://localhost:8080)
+Project | Description
+---     | ---
+my-web  | A personal website with a REST API and database connection
+jms     | JMS Web interface to send and receive messages using an ActiveMQ broker
 
-## Testing
-It is possible to browse and to perform GET operations on the REST API at the simple webpage by running the command above. 
-Currently, a REST client like Postman is suited for manual testing of the full REST API.
+---
+#### Keywords
+Spring Boot, REST, JPA, Hibernate, PostgreSQL, JMS, ActiveMQ, AngularJS, Bootstrap
