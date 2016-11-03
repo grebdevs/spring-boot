@@ -19,7 +19,7 @@ myApp.controller('pubController', function ($scope, $http) {
 });
 
 myApp.controller('subController', function ($scope, $http) {
-    $scope.messages = [{queue: "foo", msg: "bar"}];
+    $scope.messages = [];
 
     $scope.receive = function () {
         $http.get('/receive',
