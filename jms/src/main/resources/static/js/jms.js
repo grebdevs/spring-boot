@@ -18,6 +18,17 @@ myApp.controller('pubController', function ($scope, $http) {
     }
 });
 
-myApp.controller('subController', function ($scope) {
+myApp.controller('subController', function ($scope, $http) {
+    $scope.messages = [{queue: "foo", msg: "bar"}];
+
+    $scope.receive = function () {
+        $http.get('/receive',
+            {params: { queue: $scope.queue }}
+        ).success(function (data) {
+            console.log(data)
+            $scope.messages.push(data);
+
+        })
+    }
 
 });

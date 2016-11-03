@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Pär Svedberg on 2016-11-01.
  */
@@ -14,9 +17,13 @@ public class JmsConsumer {
     JmsTemplate jmsTemplate;
 
     @Value("${jms.queue.destination}")
-    String destinationQueue;
+    String defaultQueue;
 
-    public String receive(){
-        return (String)jmsTemplate.receiveAndConvert(destinationQueue);
+    public Map receive(String queue){
+        Map<String, String> map = new HashMap<>();
+        queue = queue == null ? defaultQueue : queue;
+        map.put("queue", queue);
+        map.put("msg", (String) jmsTemplate.receiveAndConvert(queue));
+        return map;
     }
 }

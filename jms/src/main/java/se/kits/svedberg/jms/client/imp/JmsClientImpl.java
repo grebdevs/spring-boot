@@ -5,9 +5,8 @@ import se.kits.svedberg.jms.consumer.JmsConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.kits.svedberg.jms.producer.JmsProducer;
-import se.kits.svedberg.jms.client.JmsClient;
-import se.kits.svedberg.jms.consumer.JmsConsumer;
-import se.kits.svedberg.jms.producer.JmsProducer;
+
+import java.util.Map;
 
 /**
  * Created by Pär Svedberg on 2016-11-01.
@@ -32,8 +31,8 @@ public class JmsClientImpl implements JmsClient {
     }
 
     @Override
-    public String receive() {
-        return jmsConsumer.receive();
+    public Map receive(String queue) {
+        return jmsConsumer.receive(queue);
     }
 
 }
