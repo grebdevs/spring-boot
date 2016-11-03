@@ -1,10 +1,13 @@
-package myjms.client.imp;
+package se.kits.svedberg.jms.client.imp;
 
-import myjms.client.JmsClient;
-import myjms.consumer.JmsConsumer;
+import se.kits.svedberg.jms.client.JmsClient;
+import se.kits.svedberg.jms.consumer.JmsConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import myjms.producer.JmsProducer;
+import se.kits.svedberg.jms.producer.JmsProducer;
+import se.kits.svedberg.jms.client.JmsClient;
+import se.kits.svedberg.jms.consumer.JmsConsumer;
+import se.kits.svedberg.jms.producer.JmsProducer;
 
 /**
  * Created by Pär Svedberg on 2016-11-01.

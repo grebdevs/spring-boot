@@ -1,6 +1,6 @@
-package myjms.controller;
+package se.kits.svedberg.jms.controller;
 
-import myjms.client.JmsClient;
+import se.kits.svedberg.jms.client.JmsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

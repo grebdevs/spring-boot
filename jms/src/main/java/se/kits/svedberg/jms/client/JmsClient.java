@@ -1,4 +1,4 @@
-package myjms.client;
+package se.kits.svedberg.jms.client;
 
 /**
  * Created by Pär Svedberg on 2016-11-01.
