@@ -35,4 +35,8 @@ public class JmsClientImpl implements JmsClient {
         return jmsConsumer.receive(queue);
     }
 
+    @Override
+    public void setTimeout(Long timeout) {
+        jmsProducer.setTimeout(timeout);
+    }
 }

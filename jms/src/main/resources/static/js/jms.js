@@ -2,7 +2,7 @@
  * Created by Pär Svedberg on 2016-11-02.
  */
 
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngResource']);
 
 myApp.controller('pubController', function ($scope, $http) {
     var resetForm = function () {
@@ -12,7 +12,7 @@ myApp.controller('pubController', function ($scope, $http) {
     }
     $scope.publish = function () {
         $http.post('/produce', null, {
-                params: { queue: $scope.pub.queue, msg: $scope.pub.message }
+                params: { queue: $scope.pub.queue, msg: $scope.pub.message, timeout: $scope.pub.timeout }
             }).then(resetForm());
 
     }

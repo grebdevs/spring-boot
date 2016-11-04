@@ -9,4 +9,5 @@ public interface JmsClient {
     public void send(String msg);
     public void send(String destination, String msg);
     public Map receive(String queue);
+    public void setTimeout(Long timeout);
 }
