@@ -1,4 +1,4 @@
-package se.kits.svedberg.jms.client.imp;
+package se.kits.svedberg.jms.client.implementation;
 
 import se.kits.svedberg.jms.client.JmsClient;
 import se.kits.svedberg.jms.consumer.JmsConsumer;
@@ -9,7 +9,7 @@ import se.kits.svedberg.jms.producer.JmsProducer;
 import java.util.Map;
 
 /**
- * Created by Pär Svedberg on 2016-11-01.
+ * Created by Pär Svedberg
  */
 @Service
 public class JmsClientImpl implements JmsClient {

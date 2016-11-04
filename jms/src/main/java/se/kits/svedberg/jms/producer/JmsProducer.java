@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import static javax.jms.Message.DEFAULT_TIME_TO_LIVE;
 
 /**
- * Created by Pär Svedberg on 2016-11-01.
+ * Created by Pär Svedberg
  */
 @Component
 public class JmsProducer {

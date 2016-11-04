@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 /**
- * Created by Pär Svedberg on 2016-11-01.
+ * Created by Pär Svedberg
  */
 @RestController
 public class WebController {

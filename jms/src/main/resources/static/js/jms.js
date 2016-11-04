@@ -1,5 +1,5 @@
 /**
- * Created by Pär Svedberg on 2016-11-02.
+ * Created by Pär Svedberg
  */
 
 var myApp = angular.module('myApp', ['ngResource']);
