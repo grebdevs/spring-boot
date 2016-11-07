@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web_client1:
+    image:
+        svedberg/spring-jms-activemq
+    ports:
+      - 8080:8080
+    depends_on:
+      - activemq
+  web_client2:
+      image:
+        svedberg/spring-jms-activemq
+      ports:
+        - 8081:8080
+      depends_on:
+        - activemq
+  activemq:
+    image:
+      rmohr/activemq:latest
+    ports:
+      - "61616:61616"
+      - "8161:8161"
