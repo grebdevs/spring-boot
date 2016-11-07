@@ -21,7 +21,7 @@ public class JmsConsumer {
 
     public Map receive(String queue){
         Map<String, String> map = new HashMap<>();
-        queue = queue == null ? defaultQueue : queue;
+        queue = (queue == null || queue.isEmpty()) ? defaultQueue : queue;
         map.put("queue", queue);
         map.put("msg", (String) jmsTemplate.receiveAndConvert(queue));
         return map;
