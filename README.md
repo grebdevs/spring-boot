@@ -12,8 +12,8 @@ Current projects:
 Project | Description
 ---     | ---
 my-web  | A personal website with a REST API and database connection
-jms     | JMS Web interface to send and receive messages using an ActiveMQ broker
+jms     | JMS client with a web interface to send and receive messages using an ActiveMQ broker, optionally connected as Docker containers
 
 ---
 #### Keywords
-Spring Boot, REST, JPA, Hibernate, PostgreSQL, JMS, ActiveMQ, AngularJS, Bootstrap
+ActiveMQ, AngularJS, Bootstrap, Docker, JMS, Spring Boot, Hibernate, JPA, PostgreSQL, REST
