@@ -1,5 +1,6 @@
 package se.kits.svedberg.jms.client.implementation;
 
+import org.springframework.beans.factory.annotation.Value;
 import se.kits.svedberg.jms.client.JmsClient;
 import se.kits.svedberg.jms.consumer.JmsConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import java.util.Map;
 @Service
 public class JmsClientImpl implements JmsClient {
 
+    @Value("${jms.queue.destination}")
+    String defaultQueue;
+
     @Autowired
     JmsConsumer jmsConsumer;
 
@@ -21,17 +25,14 @@ public class JmsClientImpl implements JmsClient {
     JmsProducer jmsProducer;
 
     @Override
-    public void send(String msg) {
-        jmsProducer.send(msg);
-    }
-
-    @Override
     public void send(String destination, String msg) {
+        destination = (destination == null || destination.isEmpty()) ? defaultQueue : destination;
         jmsProducer.send(destination, msg);
     }
 
     @Override
     public Map receive(String queue) {
+        queue = (queue == null || queue.isEmpty()) ? defaultQueue : queue;
         return jmsConsumer.receive(queue);
     }
 

@@ -28,13 +28,7 @@ public class WebController {
                         @RequestParam(name = "timeout", required = false) Long timeout){
         jmsClient.setTimeout(timeout);
         logger.info("Timeout: " + timeout);
-        if (queue == null || queue.isEmpty()) {
-            jmsClient.send(msg);
-        } else {
-            System.out.println(queue);
-            jmsClient.send(queue, msg);
-            System.out.println(queue);
-        }
+        jmsClient.send(queue, msg);
     }
 
     @RequestMapping(value="/receive", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

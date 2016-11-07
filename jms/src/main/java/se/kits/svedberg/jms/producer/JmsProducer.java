@@ -3,7 +3,6 @@ package se.kits.svedberg.jms.producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
@@ -21,17 +20,10 @@ public class JmsProducer {
     @Autowired
     JmsTemplate jmsTemplate;
 
-    @Value("${jms.queue.destination}")
-    String defaultQueue;
-
     @PostConstruct
     public void init() {
         jmsTemplate.setExplicitQosEnabled(true);
         logger.info("isExplicitQosEnabled(): " + jmsTemplate.isExplicitQosEnabled());
-    }
-
-    public void send(String msg){
-        send(defaultQueue, msg);
     }
 
     public void send(String destinationQueue, String msg){
