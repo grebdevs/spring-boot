@@ -22,7 +22,7 @@ public class JmsProducer {
     JmsTemplate jmsTemplate;
 
     @Value("${jms.queue.destination}")
-    String destinationQueue;
+    String defaultQueue;
 
     @PostConstruct
     public void init() {
@@ -31,7 +31,7 @@ public class JmsProducer {
     }
 
     public void send(String msg){
-        jmsTemplate.convertAndSend(destinationQueue, msg);
+        send(defaultQueue, msg);
     }
 
     public void send(String destinationQueue, String msg){
