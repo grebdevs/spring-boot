@@ -22,4 +22,4 @@ It is possible to browse and to perform GET operations on the REST API at the si
 Currently, a REST client like Postman is suited for manual testing of the full REST API.
 
 ## Heroku
-A Heroku adapted version of this project is found at https://github.com/grebdevs/spring-boot-web
+A Heroku adapted version of this project can be found at https://github.com/grebdevs/spring-boot-web
