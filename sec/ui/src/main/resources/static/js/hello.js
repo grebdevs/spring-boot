@@ -1,77 +1,81 @@
-angular.module('hello', [ 'ngRoute' ])
-    .config(function($routeProvider, $httpProvider) {
+angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider) {
 
-        $routeProvider.when('/', {
-            templateUrl : 'home.html',
-            controller : 'home',
-            controllerAs: 'controller'
-        }).when('/login', {
-            templateUrl : 'login.html',
-            controller : 'navigation',
-            controllerAs: 'controller'
-        }).otherwise('/');
+	$routeProvider.when('/', {
+		templateUrl : 'home.html',
+		controller : 'home',
+		controllerAs: 'controller'
+	}).when('/login', {
+		templateUrl : 'login.html',
+		controller : 'navigation',
+		controllerAs: 'controller'
+	}).otherwise('/');
 
-        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+}).controller('navigation',
 
-    })
-    .controller('home', function($http) {
-        var self = this;
-        $http.get('token').then(function(response) {
-            $http({
-                url: 'http://localhost:9000/',
-                method: 'GET',
-                headers: {
-                    'X-Auth-Token' : response.data.token
-                }
-            }).then(function (response) {
-                self.greeting = response.data;
-            });
-        })
-    })
-    .controller('navigation',
+function($rootScope, $http, $location, $route) {
+	
+	var self = this;
 
-        function($rootScope, $http, $location) {
+	self.tab = function(route) {
+		return $route.current && route === $route.current.controller;
+	};
 
-            var self = this
+	var authenticate = function(callback) {
 
-            var authenticate = function(credentials, callback) {
+		$http.get('user').then(function(response) {
+			if (response.data.name) {
+				$rootScope.authenticated = true;
+			} else {
+				$rootScope.authenticated = false;
+			}
+			callback && callback();
+		}, function() {
+			$rootScope.authenticated = false;
+			callback && callback();
+		});
 
-                var headers = credentials ? {authorization : "Basic "
-                + btoa(credentials.username + ":" + credentials.password)
-                } : {};
+	}
 
-                $http.get('user', {headers : headers}).then(function(response) {
-                    if (response.data.name) {
-                        $rootScope.authenticated = true;
-                    } else {
-                        $rootScope.authenticated = false;
-                    }
-                    callback && callback();
-                }, function() {
-                    $rootScope.authenticated = false;
-                    callback && callback();
-                });
+	authenticate();
 
-            }
+	self.credentials = {};
+	self.login = function() {
+		$http.post('login', $.param(self.credentials), {
+			headers : {
+				"content-type" : "application/x-www-form-urlencoded"
+			}
+		}).then(function() {
+			authenticate(function() {
+				if ($rootScope.authenticated) {
+					console.log("Login succeeded")
+					$location.path("/");
+					self.error = false;
+					$rootScope.authenticated = true;
+				} else {
+					console.log("Login failed with redirect")
+					$location.path("/login");
+					self.error = true;
+					$rootScope.authenticated = false;
+				}
+			});
+		}, function() {
+			console.log("Login failed")
+			$location.path("/login");
+			self.error = true;
+			$rootScope.authenticated = false;
+		})
+	};
 
-            self.logout = function() {
-                $http.post('logout', {}).finally(function() {
-                    $rootScope.authenticated = false;
-                    $location.path("/");
-                });
-            }
+	self.logout = function() {
+		$http.post('logout', {}).finally(function() {
+			$rootScope.authenticated = false;
+			$location.path("/");
+		});
+	}
 
-            authenticate();
-            self.credentials = {};
-            self.login = function() {
-                authenticate(self.credentials, function() {
-                    if ($rootScope.authenticated) {
-                        $location.path("/");
-                        self.error = false;
-                    } else {
-                        $location.path("/login");
-                        self.error = true;
-                    }
-                });
-            };
-        });
+}).controller('home', function($http) {
+	var self = this;
+	$http.get('http://localhost:9000').then(function(response) {
+		self.greeting = response.data;
+	})
+});
