@@ -13,6 +13,7 @@ Project | Description
 ---     | ---
 my-web  | A personal website with a REST API and database connection. Heroku version [here](https://github.com/grebdevs/spring-boot-web)
 jms     | JMS client with a web interface to send and receive messages using an ActiveMQ broker, optionally connected as Docker containers
+sec     | Spring security with AngularJS, modular project with separate resource server and oauth2 authentication server
 
 ---
 #### Keywords
