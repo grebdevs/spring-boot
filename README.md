@@ -2,7 +2,7 @@
 Exploring and learning more about Spring Boot and its surroundings.
 
 ## Agenda
-This repo is a collection projects based on Spring Boot, each incorporating one or more aspects of Spring and enterprise Java. The approach is basically _learning by doing_, merging own ideas with what is learned from docs and guides.
+This repo is a collection projects based on Spring Boot, each incorporating one or more aspects of Spring and enterprise Java. The approach is basically to merge own ideas with what is learned from docs and guides.
 
 ## The projects
 Maven is used to build and run the projects. Each project has its own readme with relevant info.
